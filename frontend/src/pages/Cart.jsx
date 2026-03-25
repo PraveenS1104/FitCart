@@ -177,7 +177,7 @@ return;
 try{
 
 const res = await fetch(
-"${API_BASE_URL}/api/orders/create-payment",
+`${API_BASE_URL}/api/orders/create-payment`,
 {
 method:"POST",
 headers:{ "Content-Type":"application/json" },
@@ -219,7 +219,7 @@ handler: async function(response){
 try{
 
 await fetch(
-"${API_BASE_URL}/api/orders/verify-payment",
+`${API_BASE_URL}/api/orders/verify-payment`,
 {
 method:"POST",
 headers:{ "Content-Type":"application/json" },
