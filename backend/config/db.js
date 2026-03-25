@@ -8,7 +8,7 @@ const pool = new Pool({
   },
   // Keep connections alive and auto-recover from Neon's idle timeouts
   idleTimeoutMillis: 30000,
-  connectionTimeoutMillis: 5000,
+  connectionTimeoutMillis: 30000,
   max: 10,
 });
 
