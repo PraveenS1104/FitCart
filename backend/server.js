@@ -14,8 +14,14 @@ const sizeRoutes = require("./routes/sizePredictionRoutes");
 const comfortRoutes = require("./routes/comfortScoreRoutes");
 const trendingRoutes = require("./routes/trendingRoutes");
 const app = express();
+const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+app.use(cors({
+  origin: "*", 
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
+
 app.use(express.json());
 
 
@@ -51,8 +57,8 @@ app.use("/api/size",sizeRoutes);
 app.use("/api/comfort",comfortRoutes);
 app.use("/api/trending", trendingRoutes);
 
-app.listen(5000,()=>{
+app.listen(PORT,()=>{
 
-  console.log("Backend running on http://localhost:5000");
+  console.log("Backend running on port ");
 
 });
