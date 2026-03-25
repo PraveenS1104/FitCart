@@ -1,0 +1,371 @@
+/* =====================================================
+   YARN TEXTILES — PREMIUM DESIGN SYSTEM
+   Global CSS Variables, Typography & Base Styles
+   Aesthetic: Apple · Burberry · Aesop — Dark Charcoal + Gold
+   ===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+/* =====================================================
+   DESIGN TOKENS
+   ===================================================== */
+:root {
+  /* ── Colors ──────────────────────────────────────── */
+  --clr-primary:        #1A1A1A;   /* Rich dark charcoal */
+  --clr-primary-soft:   #2C2C2C;   /* Slightly lighter for surfaces */
+  --clr-bg:             #F5F5F5;   /* Soft white background */
+  --clr-bg-card:        #FFFFFF;   /* Card / panel backgrounds */
+  --clr-accent:         #D4AF37;   /* Gold — CTAs, highlights */
+  --clr-accent-dark:    #B8960D;   /* Gold hover / pressed */
+  --clr-accent-light:   #E8CA5A;   /* Gold light */
+  --clr-muted:          #9E9E9E;   /* Secondary labels / placeholders */
+  --clr-muted-light:    #BDBDBD;   /* Lighter muted */
+  --clr-border:         #E0E0E0;   /* Borders / dividers */
+  --clr-border-dark:    #C8C8C8;   /* Darker border for inputs */
+  --clr-danger:         #E53935;   /* Error / alert */
+  --clr-success:        #2E7D32;   /* Success green */
+  --clr-warning:        #F9A825;   /* Warning amber */
+  --clr-white:          #FFFFFF;
+  --clr-dark:           #111111;   /* Deep dark for footer/panels */
+  --clr-text-heading:   #1A1A1A;   /* Headings */
+  --clr-text-body:      #3D3D3D;   /* Body text */
+  --clr-text-light:     #757575;   /* Secondary text */
+
+  /* ── Typography ──────────────────────────────────── */
+  --font-heading:   'Poppins', 'Inter', sans-serif;
+  --font-body:      'Inter', sans-serif;
+
+  --fs-h1:   48px;
+  --fs-h2:   32px;
+  --fs-h3:   24px;
+  --fs-h4:   20px;
+  --fs-body: 16px;
+  --fs-sm:   14px;
+  --fs-xs:   12px;
+
+  --fw-regular:    400;
+  --fw-medium:     500;
+  --fw-semibold:   600;
+  --fw-bold:       700;
+  --fw-extrabold:  800;
+
+  --lh-tight:   1.2;
+  --lh-normal:  1.5;
+  --lh-relaxed: 1.65;
+
+  --ls-tight:   -0.03em;
+  --ls-normal:  -0.012em;
+  --ls-wide:     0.04em;
+
+  /* ── Spacing (8px system) ────────────────────────── */
+  --sp-1:   4px;
+  --sp-2:   8px;
+  --sp-3:   12px;
+  --sp-4:   16px;
+  --sp-5:   20px;
+  --sp-6:   24px;
+  --sp-7:   28px;
+  --sp-8:   32px;
+  --sp-10:  40px;
+  --sp-12:  48px;
+  --sp-14:  56px;
+  --sp-16:  64px;
+  --sp-20:  80px;
+  --sp-24:  96px;
+
+  /* ── Border Radius ───────────────────────────────── */
+  --radius-xs:  4px;
+  --radius-sm:  6px;
+  --radius-md:  8px;
+  --radius-lg:  12px;
+  --radius-xl:  16px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+
+  /* ── Shadows ─────────────────────────────────────── */
+  --shadow-xs:   0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm:   0 2px 6px rgba(0, 0, 0, 0.07);
+  --shadow-md:   0 4px 16px rgba(0, 0, 0, 0.09);
+  --shadow-lg:   0 8px 28px rgba(0, 0, 0, 0.12);
+  --shadow-xl:   0 16px 48px rgba(0, 0, 0, 0.15);
+  --shadow-2xl:  0 24px 64px rgba(0, 0, 0, 0.18);
+  --shadow-gold: 0 4px 20px rgba(212, 175, 55, 0.25);
+  --shadow-gold-lg: 0 8px 32px rgba(212, 175, 55, 0.35);
+
+  /* ── Transitions ─────────────────────────────────── */
+  --ease-fast:   150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-slow:   350ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ── Layout ──────────────────────────────────────── */
+  --container-max:   1440px;
+  --container-lg:    1200px;
+  --container-md:    960px;
+  --gutter:          24px;
+  --navbar-height:   72px;
+}
+
+/* =====================================================
+   RESET & BASE
+   ===================================================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+  color: var(--clr-text-body);
+  background-color: var(--clr-bg);
+  line-height: var(--lh-relaxed);
+  letter-spacing: var(--ls-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =====================================================
+   TYPOGRAPHY HIERARCHY
+   ===================================================== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--clr-text-heading);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  font-weight: var(--fw-bold);
+}
+
+h1 { font-size: var(--fs-h1); font-weight: var(--fw-extrabold); }
+h2 { font-size: var(--fs-h2); font-weight: var(--fw-bold); }
+h3 { font-size: var(--fs-h3); font-weight: var(--fw-semibold); }
+h4 { font-size: var(--fs-h4); font-weight: var(--fw-semibold); }
+
+p {
+  color: var(--clr-text-body);
+  line-height: var(--lh-relaxed);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--ease-fast);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* =====================================================
+   FORM ELEMENTS
+   ===================================================== */
+button {
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all var(--ease-fast);
+}
+
+input,
+select,
+textarea {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--clr-text-body);
+  outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+}
+
+/* =====================================================
+   GLOBAL UTILITY CLASSES
+   ===================================================== */
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--container-lg);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* Page wrapper (accounts for fixed navbar) */
+.page-wrapper {
+  padding-top: var(--navbar-height);
+  min-height: 100vh;
+}
+
+/* Section spacing */
+.section {
+  padding: var(--sp-20) 0;
+}
+
+/* Gold accent text */
+.text-accent {
+  color: var(--clr-accent);
+}
+
+/* Muted text */
+.text-muted {
+  color: var(--clr-muted);
+  font-size: var(--fs-sm);
+}
+
+/* Section label (uppercase eyebrow text) */
+.section-label {
+  display: inline-block;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  margin-bottom: var(--sp-3);
+}
+
+/* =====================================================
+   PREMIUM BUTTON SYSTEM
+   ===================================================== */
+
+/* Primary — Gold filled */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  padding: 12px 28px;
+  background: var(--clr-accent);
+  color: var(--clr-primary);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-sm);
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-gold);
+  transition: all var(--ease-normal);
+}
+
+.btn-primary:hover {
+  background: var(--clr-accent-dark);
+  box-shadow: var(--shadow-gold-lg);
+  transform: translateY(-1px);
+}
+
+/* Secondary — Outlined charcoal */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  padding: 11px 28px;
+  background: transparent;
+  color: var(--clr-primary);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-sm);
+  border: 1.5px solid var(--clr-primary);
+  border-radius: var(--radius-sm);
+  transition: all var(--ease-fast);
+}
+
+.btn-secondary:hover {
+  background: var(--clr-primary);
+  color: var(--clr-white);
+  transform: translateY(-1px);
+}
+
+/* Ghost */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  padding: 10px 20px;
+  background: transparent;
+  color: var(--clr-muted);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-sm);
+  border-radius: var(--radius-sm);
+  transition: all var(--ease-fast);
+}
+
+.btn-ghost:hover {
+  background: var(--clr-border);
+  color: var(--clr-primary);
+}
+
+/* =====================================================
+   SCROLLBAR
+   ===================================================== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--clr-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--clr-border-dark);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--clr-muted);
+}
+
+/* =====================================================
+   SELECTION
+   ===================================================== */
+::selection {
+  background: rgba(212, 175, 55, 0.2);
+  color: var(--clr-primary);
+}
+
+/* =====================================================
+   ANIMATIONS
+   ===================================================== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.3); }
+  50%       { box-shadow: 0 0 0 6px rgba(212, 175, 55, 0); }
+}
+
+/* =====================================================
+   RESPONSIVE BREAKPOINTS (Mobile-first)
+   xs: 375 | sm: 640 | md: 768 | lg: 1024 | xl: 1280 | 2xl: 1440
+   ===================================================== */
+@media (max-width: 768px) {
+  :root {
+    --fs-h1: 32px;
+    --fs-h2: 26px;
+    --fs-h3: 20px;
+  }
+}

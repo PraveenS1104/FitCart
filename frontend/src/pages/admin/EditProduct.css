@@ -1,0 +1,47 @@
+/* EditProduct.css — same styles as AddProduct.css */
+/* All form styles are defined in AddProduct.css.
+   This file imports and applies the same design to the Edit form. */
+@import url('./AddProduct.css');
+
+/* ── Edit-specific: current image indicator ────────── */
+.current-image-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--clr-muted, #9E9E9E);
+  margin-bottom: 10px;
+}
+
+.current-image-wrap {
+  width: 120px;
+  height: 120px;
+  border-radius: var(--radius-lg, 12px);
+  border: 1px solid var(--clr-border, #E0E0E0);
+  overflow: hidden;
+  background: var(--clr-bg, #F5F5F5);
+  padding: 8px;
+}
+
+.current-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ── Edit badge on header ──────────────────────────── */
+.edit-page-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  background: rgba(249,168,37,0.12);
+  color: #B45309;
+  margin-left: 10px;
+  vertical-align: middle;
+}

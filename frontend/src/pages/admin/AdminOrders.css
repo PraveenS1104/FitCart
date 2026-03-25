@@ -1,0 +1,127 @@
+/* AdminOrders.css — extends AdminProducts.css shared table styles */
+/* All shared admin table styles (search bar, table, status pills, actions) 
+   are in AdminProducts.css which is imported globally. 
+   This file contains Orders-specific overrides. */
+
+/* ── Orders-specific columns ───────────────────────── */
+.order-id-cell {
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--clr-text-heading, #1A1A1A);
+  font-family: 'Courier New', monospace;
+}
+
+.order-customer-cell .customer-name {
+  font-weight: 600;
+  color: var(--clr-text-heading, #1A1A1A);
+  font-size: 14px;
+}
+
+.order-customer-cell .customer-email {
+  font-size: 12px;
+  color: var(--clr-muted, #9E9E9E);
+  margin-top: 2px;
+}
+
+.order-amount-cell {
+  font-weight: 700;
+  color: var(--clr-text-heading, #1A1A1A);
+  font-size: 15px;
+}
+
+.order-items-count {
+  font-size: 12px;
+  color: var(--clr-muted, #9E9E9E);
+}
+
+/* ── Order Detail Modal ────────────────────────────── */
+.order-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.order-modal {
+  background: var(--clr-white);
+  border-radius: var(--radius-xl, 16px);
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-2xl);
+  border: 1px solid var(--clr-border, #E0E0E0);
+}
+
+.order-modal-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--clr-border, #E0E0E0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-modal-header h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--clr-text-heading, #1A1A1A);
+}
+
+.modal-close-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--clr-border, #E0E0E0);
+  background: var(--clr-white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--clr-muted, #9E9E9E);
+  transition: all var(--ease-fast);
+}
+
+.modal-close-btn:hover {
+  background: var(--clr-danger, #E53935);
+  color: var(--clr-white);
+  border-color: var(--clr-danger, #E53935);
+}
+
+.order-modal-body { padding: 24px; }
+
+/* ── Status Update ─────────────────────────────────── */
+.status-update-form { display: flex; gap: 10px; align-items: center; }
+
+.status-update-select {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1.5px solid var(--clr-border, #E0E0E0);
+  border-radius: var(--radius-sm, 6px);
+  font-size: 14px;
+  background: var(--clr-white);
+  color: var(--clr-text-body, #3D3D3D);
+  font-family: var(--font-body, 'Inter', sans-serif);
+}
+
+.status-update-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--radius-sm, 6px);
+  background: var(--clr-accent, #D4AF37);
+  color: var(--clr-dark, #111111);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--ease-fast);
+  font-family: var(--font-body, 'Inter', sans-serif);
+}
+
+.status-update-btn:hover {
+  background: var(--clr-accent-dark, #B8960D);
+  transform: translateY(-1px);
+}

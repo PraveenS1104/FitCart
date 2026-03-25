@@ -1,0 +1,107 @@
+/* =====================================================
+   App.css — Premium Design System Override
+   All colors and typography defined in index.css
+   ===================================================== */
+
+/* ── Reset any App-level overrides ──────────────────── */
+body {
+  margin: 0;
+  font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  background: #F5F5F5 !important;
+  color: #1A1A1A !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Grid system ──────────────────────────────────── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+
+/* ── Override old blue/orange button classes ────────── */
+.primary-btn {
+  padding: 11px 24px;
+  border: none;
+  border-radius: 6px;
+  background: #D4AF37 !important;
+  color: #111111 !important;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.2s;
+}
+
+.primary-btn:hover {
+  background: #B8960D !important;
+  transform: translateY(-1px);
+}
+
+.secondary-btn {
+  padding: 11px 24px;
+  border: 1.5px solid #E0E0E0;
+  border-radius: 6px;
+  background: white;
+  color: #1A1A1A;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.2s;
+}
+
+.secondary-btn:hover {
+  border-color: #1A1A1A;
+  background: #F5F5F5;
+}
+
+/* ── Elevated card ───────────────────────────────── */
+.elevated-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  border: 1px solid #E0E0E0;
+  transition: all 0.25s;
+}
+
+.elevated-card:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+
+/* ── Product card override ───────────────────────── */
+.product-card {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #E0E0E0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: all 0.25s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+  border-color: rgba(212,175,55,0.3);
+}
+
+/* ── Page container ──────────────────────────────── */
+.page-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 24px;
+}
+
+img { max-width: 100%; display: block; }
+
+/* ── Section styles ──────────────────────────────── */
+.section-light { background: white; padding: 60px 0; }
+.section-grey  { background: #F5F5F5; padding: 60px 0; }
+
+/* ── Responsive ───────────────────────────────────── */
+@media (max-width: 900px) {
+  .grid-4 { grid-template-columns: repeat(2,1fr); }
+  .grid-3 { grid-template-columns: repeat(2,1fr); }
+}
+
+@media (max-width: 600px) {
+  .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+  .page-container { padding: 30px 16px; }
+}
