@@ -17,10 +17,9 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors({
-  origin: true, 
+  origin: "*", 
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
-  credentials: true
+  allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"]
 }));
 
 app.use(express.json());
@@ -62,7 +61,5 @@ app.use("/api/comfort",comfortRoutes);
 app.use("/api/trending", trendingRoutes);
 
 app.listen(PORT,()=>{
-
-  console.log("Backend running on port ");
-
+  console.log(`Backend running on port ${PORT}`);
 });
