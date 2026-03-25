@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import AdminLayout from "./AdminLayout";
 import "./AdminProducts.css";
+import API_BASE_URL from "../../config/apiConfig";
 
 function AdminProducts(){
 
@@ -13,7 +14,7 @@ function AdminProducts(){
  },[]);
 
  const loadProducts = ()=>{
-   axios.get("http://localhost:5000/api/admin/products")
+   axios.get(`${API_BASE_URL}/api/admin/products`)
    .then(res=>{
      setProducts(res.data);
    });
@@ -21,7 +22,7 @@ function AdminProducts(){
 
  const deleteProduct = async(id)=>{
    if(!window.confirm("Delete this product?")) return;
-   await axios.delete(`http://localhost:5000/api/admin/products/${id}`);
+   await axios.delete(`${API_BASE_URL}/api/admin/products/${id}`);
    loadProducts();
  };
 

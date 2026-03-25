@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import ReviewBox from "../components/ReviewBox";
 import "./ProductDetails.css";
+import API_BASE_URL from "../config/apiConfig";
 
 function ProductDetails(){
 
@@ -27,7 +28,7 @@ const user = JSON.parse(localStorage.getItem("user"));
 
 useEffect(()=>{
 
-fetch("http://localhost:5000/api/products")
+fetch(`${API_BASE_URL}/api/products`)
 .then(res=>res.json())
 .then(data=>{
 
@@ -62,7 +63,7 @@ return;
 
 try{
 
-const res = await fetch("http://localhost:5000/api/size/predict",{
+const res = await fetch(`${API_BASE_URL}/api/size/predict`,{
 
 method:"POST",
 headers:{ "Content-Type":"application/json" },
@@ -106,7 +107,7 @@ return;
 
 try{
 
-const res = await fetch("http://localhost:5000/api/comfort/calculate",{
+const res = await fetch(`${API_BASE_URL}/api/comfort/calculate`,{
 
 method:"POST",
 headers:{ "Content-Type":"application/json" },
@@ -153,7 +154,7 @@ return;
 
 try{
 
-await fetch("http://localhost:5000/api/cart/add",{
+await fetch(`${API_BASE_URL}/api/cart/add`,{
 
 method:"POST",
 headers:{ "Content-Type":"application/json" },

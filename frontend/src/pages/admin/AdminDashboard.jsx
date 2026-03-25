@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import AdminLayout from "./AdminLayout";
 import "./AdminDashboard.css";
+import API_BASE_URL from "../../config/apiConfig";
 
 import {
   BarChart,
@@ -19,7 +20,7 @@ function AdminDashboard() {
 
   useEffect(()=>{
 
-    axios.get("http://localhost:5000/api/admin/stats")
+    axios.get(`${API_BASE_URL}/api/admin/stats`)
     .then(res=>{
       setStats(res.data);
     });

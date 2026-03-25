@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Preferences.css";
+import API_BASE_URL from "../config/apiConfig";
 
 function Preferences() {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -13,7 +14,7 @@ function Preferences() {
   useEffect(() => {
     if (!user || loaded) return;
 
-    fetch(`http://localhost:5000/api/auth/preferences/${user.id}`)
+    fetch(`${API_BASE_URL}/api/auth/preferences/${user.id}`)
       .then(res => res.json())
       .then(data => {
         setPref(data.preferences || "");
@@ -29,7 +30,7 @@ function Preferences() {
     setMsg("");
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/preferences", {
+      const res = await fetch(`${API_BASE_URL}/api/auth/preferences`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -52,7 +53,7 @@ function Preferences() {
 
       // Reload preference from DB
       const reload = await fetch(
-        `http://localhost:5000/api/auth/preferences/${user.id}`
+        `${API_BASE_URL}/api/auth/preferences/${user.id}`
       );
       const newData = await reload.json();
       setPref(newData.preferences || "");

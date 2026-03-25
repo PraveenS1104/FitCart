@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Orders.css";
+import API_BASE_URL from "../config/apiConfig";
 
 function Orders() {
   const [orders, setOrders] = useState([]);
@@ -12,7 +13,7 @@ function Orders() {
     if (!user) return;
 
     setIsLoading(true);
-    fetch(`http://localhost:5000/api/orders/${user.id}`)
+    fetch(`${API_BASE_URL}/api/orders/${user.id}`)
       .then(res => res.json())
       .then(data => {
         setOrders(data);
@@ -246,7 +247,7 @@ function Orders() {
                 {/* Order Actions */}
                 <div className="order-actions">
                   <a
-                    href={`http://localhost:5000/api/orders/invoice/${order.id}`}
+                    href={`${API_BASE_URL}/api/orders/invoice/${order.id}`}
                     target="_blank"
                     rel="noreferrer"
                     className="action-btn invoice-btn"

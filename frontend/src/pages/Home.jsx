@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
 import "./Home.css";
+import API_BASE_URL from "../config/apiConfig";
 
 function Home() {
 
@@ -19,7 +20,7 @@ async function loadData(){
 
     // 🔥 Trending products
     const trendingRes = await fetch(
-      "http://localhost:5000/api/trending"
+      `${API_BASE_URL}/api/trending`
     );
 
     const trendingData = await trendingRes.json();
@@ -31,7 +32,7 @@ async function loadData(){
     if(user){
 
       const recRes = await fetch(
-        `http://localhost:5000/api/recommend/${user.id}`
+        `${API_BASE_URL}/api/recommend/${user.id}`
       );
 
       const recData = await recRes.json();

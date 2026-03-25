@@ -2,6 +2,7 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import "./ProductCard.css";
+import API_BASE_URL from "../config/apiConfig";
 
 function ProductCard({ product }) {
 
@@ -32,7 +33,7 @@ function ProductCard({ product }) {
 
     try {
 
-      const res = await fetch("http://localhost:5000/api/cart/add", {
+      const res = await fetch(`${API_BASE_URL}/api/cart/add`, {
 
         method: "POST",
 

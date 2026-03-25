@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./ReviewBox.css";
+import API_BASE_URL from "../config/apiConfig";
 
 function ReviewBox({ productName }) {
 
@@ -24,7 +25,7 @@ function ReviewBox({ productName }) {
 
       // Load reviews
       const res1 = await fetch(
-        `http://localhost:5000/api/reviews/${productName}`
+        `${API_BASE_URL}/api/reviews/${productName}`
       );
 
       const data1 = await res1.json();
@@ -46,7 +47,7 @@ function ReviewBox({ productName }) {
       if (user?.id) {
 
         const res2 = await fetch(
-          `http://localhost:5000/api/reviews/check/${user.id}/${productName}`
+          `${API_BASE_URL}/api/reviews/check/${user.id}/${productName}`
         );
 
         const data2 = await res2.json();
@@ -82,7 +83,7 @@ function ReviewBox({ productName }) {
       return;
     }
 
-    const res = await fetch("http://localhost:5000/api/reviews", {
+    const res = await fetch(`${API_BASE_URL}/api/reviews`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -107,7 +108,7 @@ function ReviewBox({ productName }) {
 
 
     // Reload after submit
-    fetch(`http://localhost:5000/api/reviews/${productName}`)
+    fetch(`${API_BASE_URL}/api/reviews/${productName}`)
       .then(res => res.json())
       .then(data => {
 

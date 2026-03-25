@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import AdminLayout from "./AdminLayout";
 import "./AddProduct.css";
+import API_BASE_URL from "../../config/apiConfig";
 
 function AddProduct(){
 
@@ -18,7 +19,7 @@ function AddProduct(){
 
  const submit = async(e)=>{
   e.preventDefault();
-  await axios.post("http://localhost:5000/api/admin/products", form);
+  await axios.post(`${API_BASE_URL}/api/admin/products`, form);
   setSaved(true);
   setTimeout(()=>setSaved(false), 3000);
   setForm({name:"",category:"",price:"",image:"",image2:"",image3:"",fabric:"",gsm:"",stock:"",description:""});

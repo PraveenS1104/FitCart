@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams, Link } from "react-router-dom";
 import AdminLayout from "./AdminLayout";
 import "./EditProduct.css";
+import API_BASE_URL from "../../config/apiConfig";
 
 function EditProduct(){
 
@@ -14,7 +15,7 @@ function EditProduct(){
  const [saved,setSaved] = useState(false);
 
  useEffect(()=>{
-  axios.get(`http://localhost:5000/api/admin/products`)
+  axios.get(`${API_BASE_URL}/api/admin/products`)
   .then(res=>{
     const product = res.data.find(p=>p.id == id);
     if(product) setForm(product);
@@ -27,7 +28,7 @@ function EditProduct(){
 
  const updateProduct = async(e)=>{
    e.preventDefault();
-   await axios.put(`http://localhost:5000/api/admin/products/${id}`, form);
+   await axios.put(`${API_BASE_URL}/api/admin/products/${id}`, form);
    setSaved(true);
    setTimeout(()=>setSaved(false), 3000);
  };

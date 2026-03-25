@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 import "./Cart.css";
+import API_BASE_URL from "../config/apiConfig";
 
 function Cart() {
 
@@ -26,7 +27,7 @@ async function loadCart(){
 
 try{
 
-const res = await fetch(`http://localhost:5000/api/cart/${user.id}`);
+const res = await fetch(`${API_BASE_URL}/api/cart/${user.id}`);
 const data = await res.json();
 
 setItems(data);
@@ -57,7 +58,7 @@ async function updateQty(id,type){
 
 try{
 
-await fetch("http://localhost:5000/api/cart/update",{
+await fetch(`${API_BASE_URL}/api/cart/update`,{
 method:"PUT",
 headers:{ "Content-Type":"application/json" },
 body:JSON.stringify({id,type})
@@ -97,7 +98,7 @@ async function removeItem(id){
 
 try{
 
-await fetch(`http://localhost:5000/api/cart/remove/${id}`,{
+await fetch(`${API_BASE_URL}/api/cart/remove/${id}`,{
 method:"DELETE"
 });
 
@@ -176,7 +177,7 @@ return;
 try{
 
 const res = await fetch(
-"http://localhost:5000/api/orders/create-payment",
+"${API_BASE_URL}/api/orders/create-payment",
 {
 method:"POST",
 headers:{ "Content-Type":"application/json" },
@@ -218,7 +219,7 @@ handler: async function(response){
 try{
 
 await fetch(
-"http://localhost:5000/api/orders/verify-payment",
+"${API_BASE_URL}/api/orders/verify-payment",
 {
 method:"POST",
 headers:{ "Content-Type":"application/json" },

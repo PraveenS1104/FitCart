@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
 import "./Product.css";
+import API_BASE_URL from "../config/apiConfig";
 
 function Product() {
 
@@ -15,7 +16,7 @@ function Product() {
 
     setIsLoading(true);
 
-    fetch("http://localhost:5000/api/products")
+    fetch(`${API_BASE_URL}/api/products`)
       .then((res) => res.json())
       .then((data) => {
 

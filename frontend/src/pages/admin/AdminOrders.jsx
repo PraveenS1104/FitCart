@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import AdminLayout from "./AdminLayout";
 import "./AdminOrders.css";
+import API_BASE_URL from "../../config/apiConfig";
 
 function AdminOrders(){
 
@@ -12,7 +13,7 @@ function AdminOrders(){
  },[]);
 
  const loadOrders = ()=>{
-  axios.get("http://localhost:5000/api/admin/orders")
+  axios.get(`${API_BASE_URL}/api/admin/orders`)
   .then(res=>{
     setOrders(res.data);
   });
@@ -20,7 +21,7 @@ function AdminOrders(){
 
  const updateStatus = async(id,status)=>{
   await axios.put(
-   `http://localhost:5000/api/admin/orders/${id}/status`,
+   `${API_BASE_URL}/api/admin/orders/${id}/status`,
    {status}
   );
   loadOrders();
